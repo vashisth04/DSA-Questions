@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+
+public class bkt {
+    ArrayList <Integer> al = new ArrayList<>();
+    void fun(int index,int arr[]){
+        if(index>=arr.length){
+            System.out.println(al);
+            return;
+        }
+        al.add(arr[index]);
+        fun(index+1,arr);
+        al.remove(al.size() - 1);
+        fun(index+1, arr);
+
+    }
+    public static void main(String[] args) {
+        int arr[] = {3,1,2};
+        bkt obj = new bkt();
+         obj.fun(0,arr);
+    }
+}
