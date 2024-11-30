@@ -1,0 +1,38 @@
+  public class find_one_subsequnce_whose_sum_is_k {
+
+        boolean fun(int index, int[] arr, ArrayList<Integer> al, int sum, int target) {
+            // Base case: If we have reached the end of the array
+            if (index == arr.length) {
+                if (sum == target) { // If the sum matches the target
+                    System.out.println(al); // Print the subsequence
+                    return true; // Return true to stop further recursion
+                }
+                return false; // Continue recursion if the sum does not match
+            }
+
+            // Include the current element in the subsequence
+            al.add(arr[index]); // Add the element to the list
+            sum += arr[index]; // Update the sum
+            if (fun(index + 1, arr, al, sum, target)) { // If a valid subsequence is found, stop recursion
+                return true;
+            }
+
+            // Backtrack: Exclude the current element from the subsequence
+            al.remove(al.size() - 1); // Remove the last element
+            sum -= arr[index]; // Revert the sum
+            if (fun(index + 1, arr, al, sum, target)) { // Recursive call for excluding the element
+                return true;
+            }
+
+            return false; // No valid subsequence found in this branch
+        }
+
+        public static void main(String[] args) {
+            find_one_subsequnce_whose_sum_is_k obj = new find_one_subsequnce_whose_sum_is_k();
+            int arr[] = {1, 2, 1}; // Example array
+            int target = 2; // Target sum
+            ArrayList<Integer> al = new ArrayList<>(); // List to store the subsequence
+            obj.fun(0, arr, al, 0, target); // Start recursion with sum = 0
+        }
+    }
+
