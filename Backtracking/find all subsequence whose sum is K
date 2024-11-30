@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class find_all_subsequnce_whose_sum_k {
+    ArrayList<Integer> al = new ArrayList<>();
+    void fun(int index, int arr[], int sum, int target) {
+        if (index == arr.length) {
+            if (sum == target) {
+                System.out.println(al);
+
+            }
+            return;
+        }
+        al.add(arr[index]);
+        sum = sum + arr[index];
+        fun(index + 1, arr, sum, target);
+        al.remove(al.size() - 1);
+        sum = sum - arr[index];
+        fun(index + 1, arr, sum, target);
+
+    }
+
+
+    public static void main(String[] args) {
+        find_all_subsequnce_whose_sum_k obj = new find_all_subsequnce_whose_sum_k();
+        int arr[] = {1,2,1};
+        int target = 2;
+        obj.fun(0, arr, 0, target);
+    }
+
+}
