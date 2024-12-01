@@ -13,14 +13,14 @@
             // Include the current element in the subsequence
             al.add(arr[index]); // Add the element to the list
             sum += arr[index]; // Update the sum
-            if (fun(index + 1, arr, al, sum, target)) { // If a valid subsequence is found, stop recursion
+            if (fun(index + 1, arr, al, sum, target)==true) { // If a valid subsequence is found, stop recursion
                 return true;
             }
 
             // Backtrack: Exclude the current element from the subsequence
             al.remove(al.size() - 1); // Remove the last element
             sum -= arr[index]; // Revert the sum
-            if (fun(index + 1, arr, al, sum, target)) { // Recursive call for excluding the element
+            if (fun(index + 1, arr, al, sum, target)==true) { // Recursive call for excluding the element
                 return true;
             }
 
