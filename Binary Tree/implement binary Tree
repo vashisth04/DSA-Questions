@@ -1,0 +1,33 @@
+public class BT {
+    private Treenode root;
+    private static class Treenode{
+        private Treenode left;
+        private Treenode right;
+         private int data;
+
+        private Treenode(int data){
+            this.data=data;
+            this.left=null;
+            this.right=null;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        BT obj = new BT();
+        obj.root= new Treenode(10);
+        Treenode second = new Treenode(20);
+        Treenode third = new Treenode(30);
+        Treenode fourth = new Treenode(40);
+        Treenode fifth = new Treenode(50);
+        Treenode sixth = new Treenode(60);
+
+        obj.root.left=second;
+        obj.root.right=third;
+        second.left=fourth;
+        second.right=fifth;
+        third.left=sixth;
+        
+
+    }
+}
