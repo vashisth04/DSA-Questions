@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+public class undirected_unweighted_adjacency_list {
+    ArrayList<ArrayList<Integer>> al;
+
+    undirected_unweighted_adjacency_list(int nodes) {
+        this.al = new ArrayList<>();
+        for (int i = 0; i < nodes; i++) {
+            al.add(new ArrayList<>());
+        }
+    }
+
+    void fun(int node1, int node2) {
+        al.get(node1).add(node2);
+        al.get(node2).add(node1);
+
+    }
+
+    void print() {
+        for (int i = 0; i < al.size(); i++) {
+            for (int j : al.get(i)) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+
+        undirected_unweighted_adjacency_list gh = new undirected_unweighted_adjacency_list(4);
+        gh.fun(0, 1);
+        gh.fun(1, 2);
+        gh.fun(2, 3);
+        gh.fun(3, 0);
+        gh.print();
+
+
+    }
+}
