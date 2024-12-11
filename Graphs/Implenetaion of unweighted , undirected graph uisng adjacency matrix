@@ -1,0 +1,28 @@
+public class graph {
+    int arr[][];
+    graph(int nodes){
+        this.arr= new int[nodes][nodes];
+    }
+    void fun(int node1, int node2){
+        arr[node1][node2]=1;
+        arr[node2][node1]=1;
+    }
+    void print(){
+        for(int i =0;i<arr.length;i++){
+            for(int j =0;j<arr[i].length;j++){
+                System.out.print(arr[i][j]+ " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        graph gh = new graph(4);
+        gh.fun(0,1);
+        gh.fun(1,2);
+        gh.fun(2,3);
+        gh.fun(3,1);
+        gh.print();
+
+    }
+}
