@@ -1,0 +1,31 @@
+public class undirecte_but_weighted {
+    int arr[][];
+    undirecte_but_weighted(int nodes){
+        this.arr= new int[nodes][nodes];
+    }
+    void fun(int node1, int node2,int weight){
+        arr[node1][node2]=weight;
+        arr[node2][node1]=weight;
+    }
+
+
+    void print(){
+        for(int i =0;i<arr.length;i++){
+            for(int j =0;j<arr[i].length;j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        undirecte_but_weighted gh = new undirecte_but_weighted(4);
+        gh.fun(0,1,10);
+        gh.fun(1,2,20);
+        gh.fun(2,3,30);
+        gh.fun(3,1,40);
+        gh.print();
+
+    }
+
+}
