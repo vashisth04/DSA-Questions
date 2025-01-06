@@ -1,0 +1,64 @@
+import java.util.Stack;
+
+public class Preorder {
+        private Treenode root;
+        private static class Treenode {
+            private int data;
+            private Treenode left;
+            private Treenode right;
+
+            private Treenode(int data){
+                this.data = data;
+                this.left= null;
+                this.right= null;
+            }
+        }
+
+    void fun (Treenode root){
+            if(root==null){
+                return;
+            }
+            Stack<Treenode> st = new Stack<>();
+            st.push(root);
+            while (!st.isEmpty()){
+                Treenode temp = st.peek();
+                st.pop();
+                System.out.print(temp.data+ " ");
+                if(temp.right!=null){
+                    st.push(temp.right);
+                }
+                if (temp.left!=null){
+                    st.push(temp.left);
+                }
+
+            }
+
+    }
+
+
+
+    public static void main(String[] args) {
+            Preorder bt = new Preorder();
+            bt.root= new Treenode(10);
+            Treenode second = new Treenode(20);
+            Treenode third = new Treenode(30);
+            Treenode fourth = new Treenode(40);
+            Treenode fifth = new Treenode(50);
+            Treenode sixth = new Treenode(60);
+            Treenode seventh = new Treenode(70);
+
+
+            bt.root.left=second;
+            bt.root.right=third;
+            second.left=fourth;
+            second.right=fifth;
+            third.left=sixth;
+            third.right=seventh;
+
+            bt.fun(bt.root);
+
+
+        }
+    }
+
+
